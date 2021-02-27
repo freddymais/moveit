@@ -6,7 +6,7 @@ import { LevelUpModal } from "../components/LevalUpModal";
 interface ChallengesProviderProps {
   children: ReactNode,
   level: number,
-  currentExperience: number,
+  currenteExperience: number,
   challengeCompleted: number,
 }
 
@@ -23,17 +23,17 @@ interface ChallengesContextData {
   experienceToNextLevel: number,
   activeChallenge: Challenge,
   levelUP: () => void,
-  startNewChallenge: () => void;
-  resetChallenge: () => void;
-  completeChallenge: () => void;
-  closeLevelUpModal: () => void;
+  startNewChallenge: () => void,
+  resetChallenge: () => void,
+  completeChallenge: () => void,
+  closeLevelUpModal: () => void,
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-  const [level, setLevel] = useState(rest.level ?? 0);
-  const [currenteExperience, setCurrenteExperience] = useState(rest.currentExperience ?? 1);
+  const [level, setLevel] = useState(rest.level ?? 1);
+  const [currenteExperience, setCurrenteExperience] = useState(rest.currenteExperience ?? 0);
   const [challengeCompleted, setChallengeCompleted] = useState(rest.challengeCompleted ?? 0);
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModal, setIsLevelUpModal] = useState(false)
